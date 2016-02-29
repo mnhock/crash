@@ -17,7 +17,9 @@ class executor {
                 out.show(new UIBuilder().table(columns:[1]) {
                     header {
                         table(columns:[1], separator: dashed) {
-                            header(bold: true, fg: black, bg: white) { label("metrics"); }
+                            header(bold: true, fg: black, bg: white) { 
+                            	label("Executor metrics");
+                            }
                         }
                     }
                     row {
