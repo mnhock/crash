@@ -18,25 +18,25 @@ class executor {
                     header {
                         table(columns:[1], separator: dashed) {
                             header(bold: true, fg: black, bg: white) { 
-                            	label("Executor metrics");
+                                label("Executor metrics");
                             }
                         }
                     }
                     row {
                         table(columns:[1, 1]) {
                             header(bold: true, fg: black, bg: white) {
-                            	label("NAME")
-								label("VALUE")
+                                label("NAME")
+                                label("VALUE")
                             }
 
                             ThreadPoolExecutorMetrics metrics = context.attributes['spring.beanfactory'].getBean(RandomTaskService.class).getThreadPoolExecutorMetrics();
                             
                             metrics.metaClass.methods.findAll {it.name.startsWith('get')}.sort().each { method ->
-								row {
-									label(method.name)
-									label(method.invoke(metrics))
-								}
-							}
+                                row {
+                                    label(method.name)
+                                    label(method.invoke(metrics))
+                                }
+                            }
                         }
                     }
                 });
