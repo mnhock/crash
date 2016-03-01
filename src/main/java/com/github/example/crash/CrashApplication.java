@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CrashApplication implements CommandLineRunner {
 
     @Autowired
-    private RandomTaskService randomTaskService;
+    private MessageService messageService;
 
     public static void main(String[] args) {
         SpringApplication.run(CrashApplication.class, args);
@@ -17,6 +17,6 @@ public class CrashApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.randomTaskService.startJobs();
+        this.messageService.startJobs();
     }
 }

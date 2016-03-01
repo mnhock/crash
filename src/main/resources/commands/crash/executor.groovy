@@ -2,7 +2,7 @@ package commands
 
 import org.crsh.text.ui.UIBuilder;
 import com.github.example.crash.ThreadPoolExecutorMetrics;
-import com.github.example.crash.RandomTaskService;
+import com.github.example.crash.MessageService;
 
 class executor {
 
@@ -29,7 +29,7 @@ class executor {
                                 label("VALUE")
                             }
 
-                            ThreadPoolExecutorMetrics metrics = context.attributes['spring.beanfactory'].getBean(RandomTaskService.class).getThreadPoolExecutorMetrics();
+                            ThreadPoolExecutorMetrics metrics = context.attributes['spring.beanfactory'].getBean(MessageService.class).getThreadPoolExecutorMetrics();
                             
                             metrics.metaClass.methods.findAll {it.name.startsWith('get')}.sort().each { method ->
                                 row {

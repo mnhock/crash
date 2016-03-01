@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RandomTaskService {
+public class MessageService {
 
     private static final int CORE_POOL_SIZE = 2;
 
@@ -18,7 +18,7 @@ public class RandomTaskService {
 
     private final ScheduledExecutorService executor;
 
-    public RandomTaskService() {
+    public MessageService() {
         this.executor = Executors.newScheduledThreadPool(CORE_POOL_SIZE);
     }
 
