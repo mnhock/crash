@@ -23,18 +23,18 @@ public class MessageService {
     }
 
     public void startJobs() {
-        this.executor.scheduleAtFixedRate(new CratedMessageTask(), INITIAL_DELAY, PERIOD, TimeUnit.SECONDS);
+        this.executor.scheduleAtFixedRate(new CreatedMessageTask(), INITIAL_DELAY, PERIOD, TimeUnit.SECONDS);
     }
 
     public ThreadPoolExecutorMetrics getThreadPoolExecutorMetrics() {
         return new ThreadPoolExecutorMetrics((ThreadPoolExecutor) this.executor);
     }
 
-    private class CratedMessageTask implements Runnable {
+    private class CreatedMessageTask implements Runnable {
 
         private final LocalDateTime created;
 
-        public CratedMessageTask() {
+        public CreatedMessageTask() {
             this.created = LocalDateTime.now();
         }
 
